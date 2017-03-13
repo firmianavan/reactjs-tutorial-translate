@@ -1,1 +1,11 @@
-3-rendering-elements
+# Rendering Elements
+> 译自[reactjs官方文档](https://facebook.github.io/react/docs/rendering-elements.html)
+
+Elements是React应用的最小构建块.
+一个element是对你希望在屏幕上看到的东西的一个描述:
+```
+const element = <h1>Hello, world</h1>;
+```
+
+与DOM元素相比, re
+
