@@ -64,4 +64,38 @@ const title = response.potentiallyMaliciousInput;
 // This is safe:
 const element = <h1>{title}</h1>;
 ```
-React DOM 默认会在渲染jsx之前转义嵌入其中的任何字符
+React DOM 默认会在渲染jsx之前转义嵌入其中的特殊字符, 无论是什么最终变为一个字符串, 从而防范脚本注入攻击(XSS).
+
+###jsx对象
+
+jsx将被编译成对`React.createElement()`的调用, 下面两个例子完全相同:
+```javascript
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+
+```javascript
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+`React.createElement()`将会执行一部分检查可以减少你的代码中的bug, 但最终将会创建一个类型下面的对象:
+```javascript
+// Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world'
+  }
+};
+```
+这些对象被称为"React elements". 你可以认为是对你实际看到的东西的一个描述, React读取这些对象创建DOM并保持它们在最新状态. 
+
+> Tip:
+建议为你的编辑器找一个语法方案同时正确的高亮显示ES6和JSX代码
