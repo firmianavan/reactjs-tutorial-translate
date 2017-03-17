@@ -1,2 +1,2 @@
 # reactjs-tutorial-translate
-reactjs入门官方文档翻译
+reactjs v15.4.2入门官方文档翻译
