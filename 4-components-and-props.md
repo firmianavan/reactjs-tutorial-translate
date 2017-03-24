@@ -87,3 +87,124 @@ ReactDOM.render(
 );
 ```
 
+通常新的React应用只在最顶端有一个`App` component. 但如果你尝试在一个已存在的应用中引入React, 你可能会自下而上的从类似按钮这种小的component开始,逐渐按照你的方式完成集成.
+
+> 警告:
+Components必须返回一个单根元素, 所以在上面的例子中用一个div包裹了所有的`<Welcome />`elements.
+
+### 抽象出Components
+不要害怕把components拆分成更小的components.
+比如下面这个`Comment` component:
+```javascript
+function Comment(props) {
+  return (
+    <div className="Comment">
+      <div className="UserInfo">
+        <img className="Avatar"
+          src={props.author.avatarUrl}
+          alt={props.author.name}
+        />
+        <div className="UserInfo-name">
+          {props.author.name}
+        </div>
+      </div>
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  );
+}
+```
+它接受一个author对象,一个text字符串和date日期作为props,然后描述了社交网站上的一个评论.
+
+这个component因为这些相互嵌套而难于修改, 而且难以复用其中某个部分, 让我们从中抽取出一些components.
+
+首先是`Avatar`(头像):
+```javascript
+function Avatar(props) {
+  return (
+    <img className="Avatar"
+      src={props.user.avatarUrl}
+      alt={props.user.name}
+    />
+  );
+}
+```
+这个`Avata`不需要知道它将被渲染到`Comment`. 这也是我们为什么给他的props一个更抽象的名字:`user`而不是`author`.
+建议在props命名时站在components的视角而不是它将被用到的上下文的视角进行.
+现在我们可以将`Comment`稍微简化一下:
+```javascript
+function Comment(props) {
+  return (
+    <div className="Comment">
+      <div className="UserInfo">
+        <Avatar user={props.author} />
+        <div className="UserInfo-name">
+          {props.author.name}
+        </div>
+      </div>
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  );
+}
+```
+接下来我们抽象出`UserInfo` component, 它包含一个`Avata`和用户名字:
+```javascript
+function UserInfo(props) {
+  return (
+    <div className="UserInfo">
+      <Avatar user={props.user} />
+      <div className="UserInfo-name">
+        {props.user.name}
+      </div>
+    </div>
+  );
+}
+```
+这使得`Comment`更加简洁:
+```javascript
+function Comment(props) {
+  return (
+    <div className="Comment">
+      <UserInfo user={props.author} />
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  );
+}
+```
+拆分出components的工作最初可能看起来有些繁琐, 但拥有一众可重用的components会使你在一个稍大的应用中游刃有余. 
+一条好的操作实践是,如果你UI的某个部分将被用到好多次,或者足够复杂, 使用可重用的component将是非常好的选择.
+
+### Props 是只读的
+
+无论你使用函数式声明或者类声明一个component, 修改它的props都是禁止的. 
+试看下面的加和函数:
+```
+function sum(a, b) {
+  return a + b;
+}
+```
+这种函数被称为无副作用的(pure),对应的impure函数:
+```
+function withdraw(account, amount) {
+  account.total -= amount;
+}
+```
+React相当灵活但有一条严格的规则:
+** 所有的React components必须是无副作用的, 即不可以修改传入的props对象. **
+
+当然,应用的UI是动态的, 在下一节将引入一个新的概念"state". State允许components在不违反这条规则的情况下返回不同的element以响应用户动作,网络变化等.
+
