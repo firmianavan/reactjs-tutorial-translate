@@ -38,7 +38,7 @@ function ActionLink() {
   );
 }
 ```
-其中`e`是一个React合成的事件, React参照(W3C标准)[https://www.w3.org/TR/DOM-Level-3-Events/]封装了这些事件, 所以你不必担心跨浏览器的适配性. 
+其中`e`是一个React合成的事件, React参照[W3C标准](https://www.w3.org/TR/DOM-Level-3-Events)封装了这些事件, 所以你不必担心跨浏览器的适配性. 
 
 使用React时, 通常不需要通过`addEventListener`在创建DOM元素后去为其添加监听, 而只要在render时提供一个监听即可.
 
@@ -76,10 +76,10 @@ ReactDOM.render(
 
 在使用JSX回调时, 你必须注意`this`的含义. Javascript中, 对象方法中的this默认没有绑定到对象本身, 如果你忘记了`this.handleClick = this.handleClick.bind(this);`, handleClick中的this将会是`undefined`. 
 
-这并不是React下的特定行为, 而是(javascript的一部分)[https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/], 通常情况下, 如果你引用了一个方法而未在之后使用()调用时, 比如`onClick={this.handleClick}, 应当对这个方法进行绑定. 
+这并不是React下的特定行为, 而是[javascript的一部分](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/), 通常情况下, 如果你引用了一个方法而未在之后使用()调用时, 比如`onClick={this.handleClick}, 应当对这个方法进行绑定. 
 
 如果你不喜欢这种绑定方式, 有两种办法绕开它.
-* 如果在使用(property initializer syntax)[https://babeljs.io/docs/plugins/transform-class-properties/], 你可以作如下修改:
+* 如果在使用[property initializer syntax](https://babeljs.io/docs/plugins/transform-class-properties/), 你可以作如下修改:
 ```
 class LoggingButton extends React.Component {
   // This syntax ensures `this` is bound within handleClick.
@@ -97,7 +97,7 @@ class LoggingButton extends React.Component {
   }
 }
 ```
-这种预防在(Create React App)[https://github.com/facebookincubator/create-react-app]默认开启.
+这种预防在[Create React App](https://github.com/facebookincubator/create-react-app)默认开启.
 
 * 如果你没有使用`property initializer syntax`, 可以在回调处使用箭头函数(arrow function):
 ```
