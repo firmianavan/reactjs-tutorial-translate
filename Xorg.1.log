@@ -1,0 +1,131 @@
+[   333.568] 
+X.Org X Server 1.19.5
+Release Date: 2017-10-12
+[   333.572] X Protocol Version 11, Revision 0
+[   333.574] Build Operating System: Linux 4.4.0-97-generic x86_64 Ubuntu
+[   333.575] Current Operating System: Linux firmiana 4.13.0-36-generic #40-Ubuntu SMP Fri Feb 16 20:07:48 UTC 2018 x86_64
+[   333.575] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.13.0-36-generic.efi.signed root=UUID=d6eceeb5-c400-4fb3-8b1e-7e10773a53b3 ro quiet splash vt.handoff=7
+[   333.578] Build Date: 15 October 2017  05:51:19PM
+[   333.579] xorg-server 2:1.19.5-0ubuntu2 (For technical support please see http://www.ubuntu.com/support) 
+[   333.580] Current version of pixman: 0.34.0
+[   333.583] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[   333.583] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[   333.588] (==) Log file: "/var/log/Xorg.1.log", Time: Mon Feb 26 13:40:13 2018
+[   333.590] (==) Using config file: "/etc/X11/xorg.conf"
+[   333.591] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[   333.593] (==) ServerLayout "layout"
+[   333.593] (**) |-->Screen "nvidia" (0)
+[   333.593] (**) |   |-->Monitor "<default monitor>"
+[   333.593] (**) |   |-->Device "nvidia"
+[   333.593] (**) |   |-->GPUDevice "nvidia"
+[   333.593] (==) No monitor specified for screen "nvidia".
+	Using a default monitor configuration.
+[   333.593] (**) |-->Inactive Device "intel"
+[   333.594] (==) Automatically adding devices
+[   333.594] (==) Automatically enabling devices
+[   333.594] (==) Automatically adding GPU devices
+[   333.594] (==) Automatically binding GPU devices
+[   333.594] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[   333.594] (WW) The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[   333.594] 	Entry deleted from font path.
+[   333.594] (WW) The directory "/usr/share/fonts/X11/100dpi/" does not exist.
+[   333.594] 	Entry deleted from font path.
+[   333.594] (WW) The directory "/usr/share/fonts/X11/75dpi/" does not exist.
+[   333.594] 	Entry deleted from font path.
+[   333.594] (WW) The directory "/usr/share/fonts/X11/100dpi" does not exist.
+[   333.594] 	Entry deleted from font path.
+[   333.594] (WW) The directory "/usr/share/fonts/X11/75dpi" does not exist.
+[   333.594] 	Entry deleted from font path.
+[   333.594] (==) FontPath set to:
+	/usr/share/fonts/X11/misc,
+	/usr/share/fonts/X11/Type1,
+	built-ins
+[   333.594] (==) ModulePath set to "/usr/lib/x86_64-linux-gnu/xorg/extra-modules,/usr/lib/xorg/extra-modules,/usr/lib/xorg/modules"
+[   333.594] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[   333.594] (II) Loader magic: 0x5593fbd22020
+[   333.594] (II) Module ABI versions:
+[   333.594] 	X.Org ANSI C Emulation: 0.4
+[   333.594] 	X.Org Video Driver: 23.0
+[   333.594] 	X.Org XInput driver : 24.1
+[   333.594] 	X.Org Server Extension : 10.0
+[   333.595] (++) using VT number 2
+
+[   333.598] (II) systemd-logind: took control of session /org/freedesktop/login1/session/_34
+[   333.599] (II) xfree86: Adding drm device (/dev/dri/card0)
+[   333.601] (II) systemd-logind: got fd for /dev/dri/card0 226:0 fd 11 paused 0
+[   333.603] (--) PCI:*(0:0:2:0) 8086:0166:17aa:3977 rev 9, Mem @ 0xf3000000/4194304, 0xd0000000/268435456, I/O @ 0x00004000/64, BIOS @ 0x????????/131072
+[   333.603] (WW) "glamoregl" will not be loaded unless you've specified it to be loaded elsewhere.
+[   333.603] (II) "glx" will be loaded by default.
+[   333.603] (II) LoadModule: "glx"
+[   333.605] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[   333.608] (II) Module glx: vendor="X.Org Foundation"
+[   333.608] 	compiled for 1.19.5, module version = 1.0.0
+[   333.608] 	ABI class: X.Org Server Extension, version 10.0
+[   333.608] (II) LoadModule: "nvidia"
+[   333.608] (WW) Warning, couldn't open module nvidia
+[   333.608] (II) UnloadModule: "nvidia"
+[   333.608] (II) Unloading nvidia
+[   333.609] (EE) Failed to load module "nvidia" (module does not exist, 0)
+[   333.609] (II) LoadModule: "modesetting"
+[   333.609] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   333.610] (II) Module modesetting: vendor="X.Org Foundation"
+[   333.610] 	compiled for 1.19.5, module version = 1.19.5
+[   333.610] 	Module class: X.Org Video Driver
+[   333.610] 	ABI class: X.Org Video Driver, version 23.0
+[   333.610] (==) Matched modesetting as autoconfigured driver 0
+[   333.610] (==) Matched fbdev as autoconfigured driver 1
+[   333.610] (==) Matched vesa as autoconfigured driver 2
+[   333.610] (==) Assigned the driver to the xf86ConfigLayout
+[   333.610] (II) LoadModule: "modesetting"
+[   333.610] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   333.610] (II) Module modesetting: vendor="X.Org Foundation"
+[   333.610] 	compiled for 1.19.5, module version = 1.19.5
+[   333.610] 	Module class: X.Org Video Driver
+[   333.610] 	ABI class: X.Org Video Driver, version 23.0
+[   333.610] (II) UnloadModule: "modesetting"
+[   333.610] (II) Unloading modesetting
+[   333.610] (II) Failed to load module "modesetting" (already loaded, 21907)
+[   333.610] (II) LoadModule: "nvidia"
+[   333.610] (WW) Warning, couldn't open module nvidia
+[   333.610] (II) UnloadModule: "nvidia"
+[   333.610] (II) Unloading nvidia
+[   333.610] (EE) Failed to load module "nvidia" (module does not exist, 0)
+[   333.610] (II) LoadModule: "fbdev"
+[   333.610] (II) Loading /usr/lib/xorg/modules/drivers/fbdev_drv.so
+[   333.611] (II) Module fbdev: vendor="X.Org Foundation"
+[   333.611] 	compiled for 1.19.3, module version = 0.4.4
+[   333.611] 	Module class: X.Org Video Driver
+[   333.611] 	ABI class: X.Org Video Driver, version 23.0
+[   333.611] (II) LoadModule: "vesa"
+[   333.611] (II) Loading /usr/lib/xorg/modules/drivers/vesa_drv.so
+[   333.611] (II) Module vesa: vendor="X.Org Foundation"
+[   333.611] 	compiled for 1.19.3, module version = 2.3.4
+[   333.612] 	Module class: X.Org Video Driver
+[   333.612] 	ABI class: X.Org Video Driver, version 23.0
+[   333.612] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[   333.612] (II) FBDEV: driver for framebuffer: fbdev
+[   333.612] (II) VESA: driver for VESA chipsets: vesa
+[   333.612] (II) modeset(G0): using drv /dev/dri/card0
+[   333.612] (WW) Falling back to old probe method for fbdev
+[   333.612] (II) Loading sub module "fbdevhw"
+[   333.612] (II) LoadModule: "fbdevhw"
+[   333.612] (II) Loading /usr/lib/xorg/modules/libfbdevhw.so
+[   333.612] (II) Module fbdevhw: vendor="X.Org Foundation"
+[   333.612] 	compiled for 1.19.5, module version = 0.0.2
+[   333.613] 	ABI class: X.Org Video Driver, version 23.0
+[   333.613] (WW) Falling back to old probe method for vesa
+[   333.613] (EE) No devices detected.
+[   333.613] (EE) 
+Fatal server error:
+[   333.613] (EE) no screens found(EE) 
+[   333.613] (EE) 
+Please consult the The X.Org Foundation support 
+	 at http://wiki.x.org
+ for help. 
+[   333.613] (EE) Please also check the log file at "/var/log/Xorg.1.log" for additional information.
+[   333.613] (EE) 
+[   333.623] (EE) Server terminated with error (1). Closing log file.
